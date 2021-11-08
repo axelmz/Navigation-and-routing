@@ -84,10 +84,11 @@
                 "async": true,
                 "viewPath": "navrout.view",
                 "controlAggregation": "pages",
+                "transition": "fade",
                 "controlId": "app",
                 "bypassed": {
                     "target": "notFound"
-                 },
+                },
                 "clearControlAggregation": false
             },
             "routes": [
@@ -95,6 +96,11 @@
                     "pattern": "",
                     "name": "appHome",
                     "target": "home"
+                },
+                {
+                    "pattern": "employees",
+                    "name": "employeeList",
+                    "target": "employees"
                 }
             ],
             "targets": {
@@ -104,9 +110,15 @@
                     "viewLevel": 1
                 },
                 "notFound": {
-                   "viewId": "notFound",
-                   "viewName": "NotFound",
-                   "transition": "show"
+                    "viewId": "notFound",
+                    "viewName": "NotFound",
+                    "transition": "show"
+                },
+                "employees": {
+                    "viewId": "employeeList",
+                    "viewPath": "navrout.view.employee",
+                    "viewName": "EmployeeList",
+                    "viewLevel": 2
                 }
             }
         }

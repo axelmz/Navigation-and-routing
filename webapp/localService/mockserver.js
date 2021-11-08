@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (MockServer, JSONModel, Log) {
 	"use strict";
 
-	var _sAppPath = "sap/ui/demo/nav/",
+	var _sAppPath = "navrout/",
 		_sJsonFilesPath = _sAppPath + "localService/mockdata";
 
 	return {
