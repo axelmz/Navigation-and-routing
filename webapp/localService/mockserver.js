@@ -12,6 +12,7 @@ sap.ui.define([
 
 		init: function () {
 
+			// @ts-ignore
 			return new Promise(function(fnResolve, fnReject) {
 				var sManifestUrl = sap.ui.require.toUrl(_sAppPath + "manifest.json"),
 					oManifestModel = new JSONModel(sManifestUrl);
