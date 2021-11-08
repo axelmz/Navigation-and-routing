@@ -1,8 +1,8 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
- ], function (Controller) {
+    "navrout/controller/BaseController"
+ ], function (BaseController) {
     "use strict";
-    return Controller.extend("navrout.controller.NotFound", {
+    return BaseController.extend("navrout.controller.NotFound", {
        onInit: function () {
        }
     });
