@@ -43,7 +43,16 @@ sap.ui.define([
 
 			// search/filter via URL hash
 			// @ts-ignore
-			this._applySearchFilter(this._oRouterArgs["?query"].search);
+			//this._applySearchFilter(this._oRouterArgs["?query"].search);
+			var oQueryParameter = this._oRouterArgs["?query"];
+
+			// search/filter via URL hash
+			// @ts-ignore
+			this._applySearchFilter(oQueryParameter.search);
+
+			// sorting via URL hash
+			// @ts-ignore
+			this._applySorter(oQueryParameter.sortField, oQueryParameter.sortDescending);
 		},
 
 		onSortButtonPressed: function () {
@@ -58,10 +67,13 @@ sap.ui.define([
 		},
 
 		_initViewSettingsDialog: function () {
+			var oRouter = this.getRouter();
 			this._oVSD = new ViewSettingsDialog("vsd", {
 				confirm: function (oEvent) {
 					var oSortItem = oEvent.getParameter("sortItem");
-					this._applySorter(oSortItem.getKey(), oEvent.getParameter("sortDescending"));
+					this._oRouterArgs["?query"].sortField = oSortItem.getKey();
+					this._oRouterArgs["?query"].sortDescending = oEvent.getParameter("sortDescending");
+					oRouter.navTo("employeeOverview", this._oRouterArgs, true /*without history*/);
 				}.bind(this)
 			});
 
